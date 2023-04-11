@@ -1,6 +1,6 @@
 ﻿namespace Geometry.Base;
 
-public class Figure
+public abstract class Figure
 {
-    
+    public abstract double CalculateSquare();
 }
