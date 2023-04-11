@@ -14,17 +14,22 @@ public class Circle : Figure
 
     public Circle(double radius)
     {
-        if (radius <= 0)
-        {
-            throw new ArgumentException("Получено некорректное значение радиуса. Радиус должен быть > 0");
-        }
-
         this.Radius = radius;
     }
     
     /// <inheritdoc/>
     public override double CalculateArea()
     {
+        ValidateFigure();
+        
         return Math.PI * Math.Pow(Radius, 2);
+    }
+
+    protected override void ValidateFigure()
+    {
+        if (Radius <= 0)
+        {
+            throw new ArgumentException("Получено некорректное значение радиуса. Радиус должен быть > 0");
+        }
     }
 }

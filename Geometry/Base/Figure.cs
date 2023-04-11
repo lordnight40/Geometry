@@ -14,4 +14,9 @@ public abstract class Figure
     /// </remarks>
     /// <returns>Площадь фигуры.</returns>
     public abstract double CalculateArea();
+
+    /// <summary>
+    /// Метод для валидации фигуры.
+    /// </summary>
+    protected abstract void ValidateFigure();
 }
