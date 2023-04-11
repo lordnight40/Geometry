@@ -2,12 +2,24 @@
 
 namespace Geometry.Figures;
 
+/// <summary>
+/// Треугольник.
+/// </summary>
 public class Triangle : Figure
 {
+    /// <summary>
+    /// Первая сторона.
+    /// </summary>
     public double FirstSide { get; }
 
+    /// <summary>
+    /// Вторая сторона.
+    /// </summary>
     public double SecondSide { get; }
     
+    /// <summary>
+    /// Третья сторона.
+    /// </summary>
     public double ThirdSide { get; }
 
     public Triangle(double firstSide, double secondSide, double thirdSide)
@@ -22,6 +34,7 @@ public class Triangle : Figure
         this.ThirdSide = thirdSide;
     }
 
+    /// <inheritdoc/>
     public override double CalculateArea()
     {
         var semiPerimeter = CalculateSemiPerimeter();
@@ -29,5 +42,9 @@ public class Triangle : Figure
         return Math.Sqrt(semiPerimeter * (semiPerimeter - FirstSide) * (semiPerimeter - SecondSide) * (semiPerimeter - ThirdSide));
     }
 
+    /// <summary>
+    /// Метод вычисления полупериметра.
+    /// </summary>
+    /// <returns></returns>
     private double CalculateSemiPerimeter() => (FirstSide + SecondSide + ThirdSide) / 2;
 }

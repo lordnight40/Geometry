@@ -2,8 +2,14 @@
 
 namespace Geometry.Figures;
 
+/// <summary>
+/// Круг.
+/// </summary>
 public class Circle : Figure
 {
+    /// <summary>
+    /// Радиус.
+    /// </summary>
     public double Radius { get; }
 
     public Circle(double radius)
@@ -16,6 +22,7 @@ public class Circle : Figure
         this.Radius = radius;
     }
     
+    /// <inheritdoc/>
     public override double CalculateArea()
     {
         return Math.PI * Math.Pow(Radius, 2);
