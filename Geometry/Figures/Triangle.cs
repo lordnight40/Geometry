@@ -4,11 +4,11 @@ namespace Geometry.Figures;
 
 public class Triangle : Figure
 {
-    private double firstSide;
+    public double FirstSide { get; }
 
-    private double secondSide;
-
-    private double thirdSide;
+    public double SecondSide { get; }
+    
+    public double ThirdSide { get; }
 
     public Triangle(double firstSide, double secondSide, double thirdSide)
     {
@@ -17,17 +17,17 @@ public class Triangle : Figure
             throw new ArgumentException("Получено некорректное значение длины стороны треугольника. Длина должна быть > 0");
         }
         
-        this.firstSide = firstSide;
-        this.secondSide = secondSide;
-        this.thirdSide = thirdSide;
+        this.FirstSide = firstSide;
+        this.SecondSide = secondSide;
+        this.ThirdSide = thirdSide;
     }
 
     public override double CalculateArea()
     {
         var semiPerimeter = CalculateSemiPerimeter();
 
-        return Math.Sqrt(semiPerimeter * (semiPerimeter - firstSide) * (semiPerimeter - secondSide) * (semiPerimeter - thirdSide));
+        return Math.Sqrt(semiPerimeter * (semiPerimeter - FirstSide) * (semiPerimeter - SecondSide) * (semiPerimeter - ThirdSide));
     }
 
-    private double CalculateSemiPerimeter() => (firstSide + secondSide + thirdSide) / 2;
+    private double CalculateSemiPerimeter() => (FirstSide + SecondSide + ThirdSide) / 2;
 }
