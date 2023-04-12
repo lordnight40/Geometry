@@ -29,7 +29,7 @@ public class Circle : Figure
     {
         if (Radius <= 0)
         {
-            throw new ArgumentException("Получено некорректное значение радиуса. Радиус должен быть > 0");
+            throw new InvalidOperationException("Получено некорректное значение радиуса. Радиус должен быть > 0");
         }
     }
 }
