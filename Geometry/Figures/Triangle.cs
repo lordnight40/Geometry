@@ -49,14 +49,14 @@ public class Triangle : Figure
     {
         if (FirstSide <= 0 || SecondSide <= 0 || ThirdSide <= 0)
         {
-            throw new ArgumentException("Получено некорректное значение длины стороны треугольника. Длина должна быть > 0");
+            throw new InvalidOperationException("Получено некорректное значение длины стороны треугольника. Длина должна быть > 0");
         }
 
         if (FirstSide > SecondSide + ThirdSide ||
             SecondSide > FirstSide + ThirdSide ||
             ThirdSide > FirstSide + SecondSide)
         {
-            throw new ArgumentException("Одна сторона треугольника больше суммы двух других сторон. Такой треугольник не может существовать.");
+            throw new InvalidOperationException("Одна сторона треугольника больше суммы двух других сторон. Такой треугольник не может существовать.");
         }
     }
 }
