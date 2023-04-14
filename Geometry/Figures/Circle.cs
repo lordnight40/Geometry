@@ -25,6 +25,7 @@ public class Circle : Figure
         return Math.PI * Math.Pow(Radius, 2);
     }
 
+    /// <inheritdoc/>
     protected override void ValidateFigure()
     {
         if (Radius <= 0)

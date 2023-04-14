@@ -1,18 +1,14 @@
 using Geometry.Base;
 using Geometry.Figures;
 using Geometry.Helpers;
-using NUnit.Framework.Internal;
-using System.Reflection;
 
 namespace Geometry.UnitTests;
 
 public class TriangleTests
 {
-    [SetUp]
-    public void Setup()
-    {
-    }
-
+    /// <summary>
+    /// Тест на корректный расчет площади фигуры.
+    /// </summary>
     [Test]
     public void CorrectAreaCalculatingTest()
     {
@@ -23,13 +19,21 @@ public class TriangleTests
             Is.EqualTo(49.6078.ToString(Common.FloatingValueFormat)));
     }
 
+    /// <summary>
+    /// Тест на то, что фигура может существовать.
+    /// </summary>
+    /// <param name="testFigures">Фигура.</param>
     [Test]
     [TestCaseSource(nameof(IncorrectFigures))]
-    public void FigureCanExistsTest(Figure testTriangle)
+    public void FigureCanExistsTest(Figure testFigures)
     {
-        Assert.Catch<InvalidOperationException>(() => testTriangle.CalculateArea());
+        Assert.Catch<InvalidOperationException>(() => testFigures.CalculateArea());
     }
 
+    /// <summary>
+    /// Тест на то, что треугольник прямоугольный.
+    /// </summary>
+    /// <param name="testCaseData">Тестовые значения.</param>
     [Test]
     [TestCaseSource(nameof(Triangles))]
     public void RectangularTriangleTest(ValueTuple<Figure, bool> testCaseData)
@@ -37,6 +41,9 @@ public class TriangleTests
         Assert.That(TriangleTools.IsRectangular(testCaseData.Item1), Is.EqualTo(testCaseData.Item2));
     }
 
+    /// <summary>
+    /// Набор заведомо некорректных треугольников.
+    /// </summary>
     public static IEnumerable<Figure> IncorrectFigures
     {
         get
@@ -47,6 +54,9 @@ public class TriangleTests
         }
     }
 
+    /// <summary>
+    /// Набор треугольников для тестирования на признак прямого угла.
+    /// </summary>
     public static IEnumerable<ValueTuple<Figure, bool>> Triangles
     {
         get

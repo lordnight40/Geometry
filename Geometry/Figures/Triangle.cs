@@ -45,6 +45,7 @@ public class Triangle : Figure
     /// <returns></returns>
     private double CalculateSemiPerimeter() => (FirstSide + SecondSide + ThirdSide) / 2;
 
+    /// <inheritdoc/>
     protected override void ValidateFigure()
     {
         if (FirstSide <= 0 || SecondSide <= 0 || ThirdSide <= 0)
